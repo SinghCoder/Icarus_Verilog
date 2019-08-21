@@ -1,0 +1,27 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_001835f8 .scope module, "mux2to1_df" "mux2to1_df" 2 1;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "f"
+    .port_info 1 /INPUT 1 "a"
+    .port_info 2 /INPUT 1 "b"
+    .port_info 3 /INPUT 1 "s"
+o025b1874 .functor BUFZ 1, C4<z>; HiZ drive
+v00183700_0 .net "a", 0 0, o025b1874;  0 drivers
+o025b188c .functor BUFZ 1, C4<z>; HiZ drive
+v00183758_0 .net "b", 0 0, o025b188c;  0 drivers
+v001854a0_0 .net "f", 0 0, L_00185550;  1 drivers
+o025b18bc .functor BUFZ 1, C4<z>; HiZ drive
+v001854f8_0 .net "s", 0 0, o025b18bc;  0 drivers
+L_00185550 .functor MUXZ 1, o025b188c, o025b1874, o025b18bc, C4<>;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux2to1_df.v";

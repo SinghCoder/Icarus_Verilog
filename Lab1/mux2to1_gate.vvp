@@ -1,0 +1,33 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01213680 .scope module, "mux2to1_gate" "mux2to1_gate" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /INPUT 1 "s"
+    .port_info 3 /OUTPUT 1 "f"
+o010b1904 .functor BUFZ 1, C4<z>; HiZ drive
+L_01215590 .functor NOT 1, o010b1904, C4<0>, C4<0>, C4<0>;
+o010b1874 .functor BUFZ 1, C4<z>; HiZ drive
+L_0121e7b8 .functor AND 1, o010b1874, o010b1904, C4<1>, C4<1>;
+o010b188c .functor BUFZ 1, C4<z>; HiZ drive
+L_0121e800 .functor AND 1, o010b188c, L_0121e800, C4<1>, C4<1>;
+L_0121e848 .functor OR 1, L_0121e7b8, L_0121e800, C4<0>, C4<0>;
+v01213750_0 .net "a", 0 0, o010b1874;  0 drivers
+v012137a8_0 .net "b", 0 0, o010b188c;  0 drivers
+v012153d8_0 .net "c", 0 0, L_01215590;  1 drivers
+v01215430_0 .net "d", 0 0, L_0121e7b8;  1 drivers
+v01215488_0 .net "e", 0 0, L_0121e800;  1 drivers
+v012154e0_0 .net "f", 0 0, L_0121e848;  1 drivers
+v01215538_0 .net "s", 0 0, o010b1904;  0 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux2to1_gate.v";

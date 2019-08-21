@@ -1,0 +1,57 @@
+$date
+	Wed Aug 21 09:49:15 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench_mux2to1_gate $end
+$var wire 1 ! f $end
+$var reg 1 " a $end
+$var reg 1 # b $end
+$var reg 1 $ s $end
+$scope module mux_gate $end
+$var wire 1 " a $end
+$var wire 1 # b $end
+$var wire 1 % c $end
+$var wire 1 & d $end
+$var wire 1 ' e $end
+$var wire 1 ! f $end
+$var wire 1 $ s $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x'
+0&
+x%
+x$
+1#
+0"
+x!
+$end
+#2
+0%
+1$
+#7
+1%
+0$
+#17
+0!
+0'
+0#
+1"
+#32
+1!
+0%
+1&
+1$
+#52
+0!
+1%
+0&
+0$
+#152

@@ -1,0 +1,26 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_011d3680 .scope module, "NAND_from_AND_n_NOT" "NAND_from_AND_n_NOT" 2 2;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "c"
+    .port_info 1 /INPUT 1 "a"
+    .port_info 2 /INPUT 1 "b"
+o01071874 .functor BUFZ 1, C4<z>; HiZ drive
+o0107188c .functor BUFZ 1, C4<z>; HiZ drive
+L_011d4b98 .functor AND 1, o01071874, o0107188c, C4<1>, C4<1>;
+L_011d4be0 .functor NOT 1, L_011d4b98, C4<0>, C4<0>, C4<0>;
+v011d3750_0 .net "a", 0 0, o01071874;  0 drivers
+v011d4a90_0 .net "b", 0 0, o0107188c;  0 drivers
+v011d4ae8_0 .net "c", 0 0, L_011d4be0;  1 drivers
+v011d4b40_0 .net "d", 0 0, L_011d4b98;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "NAND_from_AND_n_NOT.v";
