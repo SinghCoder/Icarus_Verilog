@@ -7,6 +7,11 @@ module mealy_test;
 	
 	mealy duty(inp,rst,clk,outp);
 	
+	always @(posedge clk or posedge rst)
+	begin
+		$display(" State = ",duty.state," Input = ", inp, " Output = " , outp, " Clock = ", clk, " rst = ",rst ," time =",$time);
+	end
+
 	initial
 	begin
 		clk = 0;
@@ -17,23 +22,21 @@ module mealy_test;
 		for( i=0; i<=15; i = i+1)
 		begin
 			inp = sequence[i];
-			#2 clk <= 1;
-			#2 clk <= 0;
-			$display(" State = ",duty.state," Input = ", inp, " Output = " , outp, " Clock = ", clk, " rst = ",rst );
+			#2 clk = 1;
+			#2 clk = 0;
 		end
 		
-		// testing;
+		testing;
 	end
 		
-		// task testing;
-		// 	for( i = 0; i <= 15; i = i + 1)
-		// 	begin
-		// 		inp = $random % 2;
-		// 		#2 clk = 1;
-		// 		#2 clk = 0;
-		// 		$display(" State = ", duty.state, " Input = ", inp, ", Output = ", outp);
-		// 	end	
-		// endtask
+		task testing;
+			for( i = 0; i <= 15; i = i + 1)
+			begin
+				inp = $random % 2;
+				#2 clk = 1;
+				#2 clk = 0;
+			end	
+		endtask
 endmodule
 	
 	
