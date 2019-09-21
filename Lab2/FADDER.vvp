@@ -1,0 +1,85 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00ef2a38 .scope module, "FADDER" "FADDER" 2 2;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "s"
+    .port_info 1 /OUTPUT 1 "c"
+    .port_info 2 /INPUT 1 "x"
+    .port_info 3 /INPUT 1 "y"
+    .port_info 4 /INPUT 1 "z"
+L_00ef1028 .functor OR 1, L_00fce848, L_00fce890, C4<0>, C4<0>;
+L_00ef0f50 .functor OR 1, L_00ef1028, L_00ef0e78, C4<0>, C4<0>;
+L_00ef0b60 .functor OR 1, L_00ef0f50, L_00ef09f8, C4<0>, C4<0>;
+L_00ef1070 .functor OR 1, L_00fce940, L_00ef0ad0, C4<0>, C4<0>;
+L_00ef0a88 .functor OR 1, L_00ef1070, L_00ef0a40, C4<0>, C4<0>;
+L_00ef0bf0 .functor OR 1, L_00ef0a88, L_00ef09f8, C4<0>, C4<0>;
+v00fcc698_0 .net *"_s0", 0 0, L_00ef1028;  1 drivers
+v00fccb68_0 .net *"_s2", 0 0, L_00ef0f50;  1 drivers
+v00fccc70_0 .net *"_s6", 0 0, L_00ef1070;  1 drivers
+v00fcc7a0_0 .net *"_s8", 0 0, L_00ef0a88;  1 drivers
+v00fccc18_0 .net "c", 0 0, L_00ef0bf0;  1 drivers
+v00fccdd0_0 .net "d0", 0 0, L_00fce800;  1 drivers
+v00ef06f0_0 .net "d1", 0 0, L_00fce848;  1 drivers
+v00ef0850_0 .net "d2", 0 0, L_00fce890;  1 drivers
+v00ef0748_0 .net "d3", 0 0, L_00fce940;  1 drivers
+v00ef05e8_0 .net "d4", 0 0, L_00ef0e78;  1 drivers
+v00ef07a0_0 .net "d5", 0 0, L_00ef0ad0;  1 drivers
+v00ef07f8_0 .net "d6", 0 0, L_00ef0a40;  1 drivers
+v00ef0488_0 .net "d7", 0 0, L_00ef09f8;  1 drivers
+v00ef0640_0 .net "s", 0 0, L_00ef0b60;  1 drivers
+o00ef4084 .functor BUFZ 1, C4<z>; HiZ drive
+v00ef03d8_0 .net "x", 0 0, o00ef4084;  0 drivers
+o00ef40b4 .functor BUFZ 1, C4<z>; HiZ drive
+v00ef04e0_0 .net "y", 0 0, o00ef40b4;  0 drivers
+o00ef40e4 .functor BUFZ 1, C4<z>; HiZ drive
+v00ef0430_0 .net "z", 0 0, o00ef40e4;  0 drivers
+S_00fc35f8 .scope module, "dec" "DECODER" 2 6, 3 1 0, S_00ef2a38;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "d0"
+    .port_info 1 /OUTPUT 1 "d1"
+    .port_info 2 /OUTPUT 1 "d2"
+    .port_info 3 /OUTPUT 1 "d3"
+    .port_info 4 /OUTPUT 1 "d4"
+    .port_info 5 /OUTPUT 1 "d5"
+    .port_info 6 /OUTPUT 1 "d6"
+    .port_info 7 /OUTPUT 1 "d7"
+    .port_info 8 /INPUT 1 "x"
+    .port_info 9 /INPUT 1 "y"
+    .port_info 10 /INPUT 1 "z"
+L_00fc3758 .functor NOT 1, o00ef4084, C4<0>, C4<0>, C4<0>;
+L_00fc37a0 .functor NOT 1, o00ef40b4, C4<0>, C4<0>, C4<0>;
+L_00fce7b8 .functor NOT 1, o00ef40e4, C4<0>, C4<0>, C4<0>;
+L_00fce800 .functor AND 1, L_00fc3758, L_00fc37a0, L_00fce7b8, C4<1>;
+L_00fce848 .functor AND 1, L_00fc3758, L_00fc37a0, o00ef40e4, C4<1>;
+L_00fce890 .functor AND 1, L_00fc3758, o00ef40b4, L_00fce7b8, C4<1>;
+L_00fce940 .functor AND 1, L_00fc3758, o00ef40b4, o00ef40e4, C4<1>;
+L_00ef0e78 .functor AND 1, o00ef4084, L_00fc37a0, L_00fce7b8, C4<1>;
+L_00ef0ad0 .functor AND 1, o00ef4084, L_00fc37a0, o00ef40e4, C4<1>;
+L_00ef0a40 .functor AND 1, o00ef4084, o00ef40b4, L_00fce7b8, C4<1>;
+L_00ef09f8 .functor AND 1, o00ef4084, o00ef40b4, o00ef40e4, C4<1>;
+v00fcc850_0 .net "d0", 0 0, L_00fce800;  alias, 1 drivers
+v00fcc958_0 .net "d1", 0 0, L_00fce848;  alias, 1 drivers
+v00fcccc8_0 .net "d2", 0 0, L_00fce890;  alias, 1 drivers
+v00fcc9b0_0 .net "d3", 0 0, L_00fce940;  alias, 1 drivers
+v00fcc6f0_0 .net "d4", 0 0, L_00ef0e78;  alias, 1 drivers
+v00fcc8a8_0 .net "d5", 0 0, L_00ef0ad0;  alias, 1 drivers
+v00fcc748_0 .net "d6", 0 0, L_00ef0a40;  alias, 1 drivers
+v00fccbc0_0 .net "d7", 0 0, L_00ef09f8;  alias, 1 drivers
+v00fcc900_0 .net "x", 0 0, o00ef4084;  alias, 0 drivers
+v00fccd78_0 .net "x0", 0 0, L_00fc3758;  1 drivers
+v00fcca08_0 .net "y", 0 0, o00ef40b4;  alias, 0 drivers
+v00fcca60_0 .net "y0", 0 0, L_00fc37a0;  1 drivers
+v00fccab8_0 .net "z", 0 0, o00ef40e4;  alias, 0 drivers
+v00fccb10_0 .net "z0", 0 0, L_00fce7b8;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "FADDER.v";
+    "./DECODER.v";

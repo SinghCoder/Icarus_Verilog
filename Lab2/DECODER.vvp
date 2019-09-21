@@ -1,0 +1,54 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010c3680 .scope module, "DECODER" "DECODER" 2 1;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "d0"
+    .port_info 1 /OUTPUT 1 "d1"
+    .port_info 2 /OUTPUT 1 "d2"
+    .port_info 3 /OUTPUT 1 "d3"
+    .port_info 4 /OUTPUT 1 "d4"
+    .port_info 5 /OUTPUT 1 "d5"
+    .port_info 6 /OUTPUT 1 "d6"
+    .port_info 7 /OUTPUT 1 "d7"
+    .port_info 8 /INPUT 1 "x"
+    .port_info 9 /INPUT 1 "y"
+    .port_info 10 /INPUT 1 "z"
+o028a3e54 .functor BUFZ 1, C4<z>; HiZ drive
+L_010cedb8 .functor NOT 1, o028a3e54, C4<0>, C4<0>, C4<0>;
+o028a3e84 .functor BUFZ 1, C4<z>; HiZ drive
+L_010cee00 .functor NOT 1, o028a3e84, C4<0>, C4<0>, C4<0>;
+o028a3eb4 .functor BUFZ 1, C4<z>; HiZ drive
+L_010cee48 .functor NOT 1, o028a3eb4, C4<0>, C4<0>, C4<0>;
+L_010cee90 .functor AND 1, L_010cedb8, L_010cee00, L_010cee48, C4<1>;
+L_010ceed8 .functor AND 1, L_010cedb8, L_010cee00, o028a3eb4, C4<1>;
+L_010cef20 .functor AND 1, L_010cedb8, o028a3e84, L_010cee48, C4<1>;
+L_028c11d0 .functor AND 1, L_010cedb8, o028a3e84, o028a3eb4, C4<1>;
+L_028c1218 .functor AND 1, o028a3e54, L_010cee00, L_010cee48, C4<1>;
+L_028c1330 .functor AND 1, o028a3e54, L_010cee00, o028a3eb4, C4<1>;
+L_028c13e0 .functor AND 1, o028a3e54, o028a3e84, L_010cee48, C4<1>;
+L_028c14f8 .functor AND 1, o028a3e54, o028a3e84, o028a3eb4, C4<1>;
+v028a35d0_0 .net "d0", 0 0, L_010cee90;  1 drivers
+v028a3628_0 .net "d1", 0 0, L_010ceed8;  1 drivers
+v028a3680_0 .net "d2", 0 0, L_010cef20;  1 drivers
+v028a36d8_0 .net "d3", 0 0, L_028c11d0;  1 drivers
+v028a3730_0 .net "d4", 0 0, L_028c1218;  1 drivers
+v028a3788_0 .net "d5", 0 0, L_028c1330;  1 drivers
+v010ce590_0 .net "d6", 0 0, L_028c13e0;  1 drivers
+v010ce9b0_0 .net "d7", 0 0, L_028c14f8;  1 drivers
+v010ce7f8_0 .net "x", 0 0, o028a3e54;  0 drivers
+v010ce6f0_0 .net "x0", 0 0, L_010cedb8;  1 drivers
+v010ce900_0 .net "y", 0 0, o028a3e84;  0 drivers
+v010ce748_0 .net "y0", 0 0, L_010cee00;  1 drivers
+v010ce850_0 .net "z", 0 0, o028a3eb4;  0 drivers
+v010ce7a0_0 .net "z0", 0 0, L_010cee48;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "DECODER.v";

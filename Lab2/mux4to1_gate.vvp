@@ -1,0 +1,56 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01062590 .scope module, "mux4to1_gate" "mux4to1_gate" 2 1;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out"
+    .port_info 1 /INPUT 4 "in"
+    .port_info 2 /INPUT 2 "sel"
+L_011b90c0 .functor NOT 1, L_011be0c0, C4<0>, C4<0>, C4<0>;
+L_011b37b0 .functor NOT 1, L_011be118, C4<0>, C4<0>, C4<0>;
+L_011ba158 .functor AND 1, L_011be170, L_011b90c0, L_011b37b0, C4<1>;
+L_011ba1a0 .functor AND 1, L_011be1c8, L_011b37b0, L_011be220, C4<1>;
+L_011ba1e8 .functor AND 1, L_011be278, L_011be2d0, L_011b90c0, C4<1>;
+L_011be750 .functor AND 1, L_011be3d8, L_011be430, L_011be488, C4<1>;
+L_011be800 .functor OR 1, L_011ba158, L_011ba1a0, L_011ba1e8, L_011be750;
+v01062660_0 .net *"_s1", 0 0, L_011be0c0;  1 drivers
+v010626b8_0 .net *"_s11", 0 0, L_011be220;  1 drivers
+v01062710_0 .net *"_s14", 0 0, L_011be278;  1 drivers
+v011b35f8_0 .net *"_s16", 0 0, L_011be2d0;  1 drivers
+v011b3650_0 .net *"_s19", 0 0, L_011be3d8;  1 drivers
+v011b36a8_0 .net *"_s21", 0 0, L_011be430;  1 drivers
+v011b3700_0 .net *"_s23", 0 0, L_011be488;  1 drivers
+v011b3758_0 .net *"_s3", 0 0, L_011be118;  1 drivers
+v011ba020_0 .net *"_s6", 0 0, L_011be170;  1 drivers
+v011ba078_0 .net *"_s9", 0 0, L_011be1c8;  1 drivers
+v011be380_0 .net "a1", 0 0, L_011ba158;  1 drivers
+v011be328_0 .net "a2", 0 0, L_011ba1a0;  1 drivers
+v011be5e8_0 .net "a3", 0 0, L_011ba1e8;  1 drivers
+v011be010_0 .net "a4", 0 0, L_011be750;  1 drivers
+o0106413c .functor BUFZ 4, C4<zzzz>; HiZ drive
+v011bdf60_0 .net "in", 0 3, o0106413c;  0 drivers
+v011be068_0 .net "n1", 0 0, L_011b90c0;  1 drivers
+v011bdf08_0 .net "n2", 0 0, L_011b37b0;  1 drivers
+v011bdfb8_0 .net "out", 0 0, L_011be800;  1 drivers
+o0106419c .functor BUFZ 2, C4<zz>; HiZ drive
+v011be640_0 .net "sel", 0 1, o0106419c;  0 drivers
+L_011be0c0 .part o0106419c, 0, 1;
+L_011be118 .part o0106419c, 1, 1;
+L_011be170 .part o0106413c, 3, 1;
+L_011be1c8 .part o0106413c, 2, 1;
+L_011be220 .part o0106419c, 0, 1;
+L_011be278 .part o0106413c, 1, 1;
+L_011be2d0 .part o0106419c, 1, 1;
+L_011be3d8 .part o0106413c, 0, 1;
+L_011be430 .part o0106419c, 1, 1;
+L_011be488 .part o0106419c, 0, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux4to1_gate.v";
