@@ -1,0 +1,46 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_000000000123d9f0 .scope module, "test_32bitOR" "test_32bitOR" 2 2;
+ .timescale 0 0;
+v00000000008afd20_0 .var "inp1", 31 0;
+v00000000008afdc0_0 .var "inp2", 31 0;
+v00000000008afe60_0 .net "out", 31 0, L_0000000000857440;  1 drivers
+S_000000000123db70 .scope module, "or32bit" "module_32bitOR" 2 6, 3 1 0, S_000000000123d9f0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 32 "outp"
+    .port_info 1 /INPUT 32 "in1"
+    .port_info 2 /INPUT 32 "in2"
+L_0000000000857440 .functor OR 32, v00000000008afd20_0, v00000000008afdc0_0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+v000000000123dcf0_0 .net "in1", 31 0, v00000000008afd20_0;  1 drivers
+v00000000008afbe0_0 .net "in2", 31 0, v00000000008afdc0_0;  1 drivers
+v00000000008afc80_0 .net "outp", 31 0, L_0000000000857440;  alias, 1 drivers
+    .scope S_000000000123d9f0;
+T_0 ;
+    %vpi_call 2 9 "$monitor", "in1 - %b", v00000000008afd20_0, " in2 - %b ", v00000000008afdc0_0, " out - %b ", v00000000008afe60_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000000000123d9f0;
+T_1 ;
+    %pushi/vec4 1073741823, 0, 32;
+    %store/vec4 v00000000008afd20_0, 0, 32;
+    %pushi/vec4 1509949440, 0, 32;
+    %store/vec4 v00000000008afdc0_0, 0, 32;
+    %delay 100, 0;
+    %pushi/vec4 4294967295, 0, 32;
+    %store/vec4 v00000000008afd20_0, 0, 32;
+    %delay 1000, 0;
+    %vpi_call 2 16 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_32bitOR.v";
+    "./module_32bitOR.v";

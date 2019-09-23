@@ -1,0 +1,66 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00000000001bdc00 .scope module, "test_32bitadder" "test_32bitadder" 2 2;
+ .timescale 0 0;
+v00000000008adcc0_0 .var "cin", 0 0;
+v00000000008ade00_0 .net "cout", 0 0, L_00000000008ad2c0;  1 drivers
+v00000000008ad400_0 .var "in1", 31 0;
+v00000000008ad220_0 .var "in2", 31 0;
+v00000000008ad5e0_0 .net "sm", 31 0, L_00000000008ad4a0;  1 drivers
+S_0000000000822760 .scope module, "fa1" "fulladder_32bit" 2 10, 3 1 0, S_00000000001bdc00;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 32 "sum"
+    .port_info 1 /OUTPUT 1 "cout"
+    .port_info 2 /INPUT 32 "num1"
+    .port_info 3 /INPUT 32 "num2"
+    .port_info 4 /INPUT 1 "cin"
+L_00000000008ae450 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v00000000001bdd80_0 .net *"_s10", 0 0, L_00000000008ae450;  1 drivers
+v00000000001bde20_0 .net *"_s11", 32 0, L_00000000008ad360;  1 drivers
+v00000000008228e0_0 .net *"_s13", 32 0, L_00000000008ad540;  1 drivers
+L_00000000008ae498 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000000000822980_0 .net *"_s16", 31 0, L_00000000008ae498;  1 drivers
+v0000000000822a20_0 .net *"_s17", 32 0, L_00000000008ad040;  1 drivers
+v0000000000822ac0_0 .net *"_s3", 32 0, L_00000000008adc20;  1 drivers
+L_00000000008ae408 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v00000000008accd0_0 .net *"_s6", 0 0, L_00000000008ae408;  1 drivers
+v00000000008acd70_0 .net *"_s7", 32 0, L_00000000008ad720;  1 drivers
+v00000000008ace10_0 .net "cin", 0 0, v00000000008adcc0_0;  1 drivers
+v00000000008aceb0_0 .net "cout", 0 0, L_00000000008ad2c0;  alias, 1 drivers
+v00000000008acf50_0 .net "num1", 31 0, v00000000008ad400_0;  1 drivers
+v00000000008adb80_0 .net "num2", 31 0, v00000000008ad220_0;  1 drivers
+v00000000008ad180_0 .net "sum", 31 0, L_00000000008ad4a0;  alias, 1 drivers
+L_00000000008ad2c0 .part L_00000000008ad040, 32, 1;
+L_00000000008ad4a0 .part L_00000000008ad040, 0, 32;
+L_00000000008adc20 .concat [ 32 1 0 0], v00000000008ad400_0, L_00000000008ae408;
+L_00000000008ad720 .concat [ 32 1 0 0], v00000000008ad220_0, L_00000000008ae450;
+L_00000000008ad360 .arith/sum 33, L_00000000008adc20, L_00000000008ad720;
+L_00000000008ad540 .concat [ 1 32 0 0], v00000000008adcc0_0, L_00000000008ae498;
+L_00000000008ad040 .arith/sum 33, L_00000000008ad360, L_00000000008ad540;
+    .scope S_00000000001bdc00;
+T_0 ;
+    %vpi_call 2 13 "$monitor", " in1 %b ", v00000000008ad400_0, "in2: %b ", v00000000008ad220_0, "sm: %b ", v00000000008ad5e0_0, "cout: ", v00000000008ade00_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_00000000001bdc00;
+T_1 ;
+    %pushi/vec4 142, 0, 32;
+    %store/vec4 v00000000008ad400_0, 0, 32;
+    %pushi/vec4 4294967126, 0, 32;
+    %store/vec4 v00000000008ad220_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000008adcc0_0, 0, 1;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_32bitadder.v";
+    "./fulladder_32bit.v";
