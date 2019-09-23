@@ -1,3 +1,5 @@
+`ifndef SHIFT_REG_4BIT_L
+`define SHIFT_REG_4BIT_L
 module shift_reg_4bit_lab( in, en, Q, clk );
 
     parameter n = 4;
@@ -6,7 +8,7 @@ module shift_reg_4bit_lab( in, en, Q, clk );
     reg [n-1:0] Q;
 
     initial 
-        Q = 4'd10;
+        Q = 4'b0;
     
     always @(posedge clk) begin
         if(en)
@@ -15,3 +17,4 @@ module shift_reg_4bit_lab( in, en, Q, clk );
         end
     end
 endmodule
+`endif
