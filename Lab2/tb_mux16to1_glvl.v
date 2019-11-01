@@ -11,7 +11,14 @@ module tb_mux16to1_glvl();
         $dumpfile("tb_mux16to1_glvl.vcd");
         $dumpvars;
     end
-
+	
+	initial begin
+		
+		$monitor("inp = %b, sel = %b, outp = %b", inp, sel, outp);
+		
+	end
+	
+	
     initial begin
 
          inp = 16'b0000_0101_1111_1010; sel = 4'b0000;
