@@ -5,7 +5,7 @@
 		input reset,
 		output [31:0] instr);
 		
-		reg [31:0][31:0] mem;		//32 mem locns each 32 bit wide
+		reg [31:0] mem[0:31];		//32 mem locns each 32 bit wide
 		
 		always @(pc)
 			instr = mem[pc];

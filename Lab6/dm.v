@@ -8,7 +8,7 @@
 	input memRead,
 	output [31:0] readData);
 		
-		reg[31:0][31:0] mem;
+		reg [31:0] mem [0:31];
 		
 		always @(memWrite)
 			if(~memRead)

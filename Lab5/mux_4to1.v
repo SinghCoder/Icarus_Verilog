@@ -13,13 +13,13 @@
         always @(regNo) begin
             case (regNo)
                 2'b00: 
-                    assign regData = q0;
+                    regData = q0;
                 2'b01: 
-                    assign regData = q1;
+                    regData = q1;
                 2'b10: 
-                    assign regData = q2;
+                    regData = q2;
                 2'b11: 
-                    assign regData = q3;
+                    regData = q3;
             endcase
         end
     endmodule

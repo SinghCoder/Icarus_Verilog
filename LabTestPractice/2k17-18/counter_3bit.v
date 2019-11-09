@@ -20,9 +20,9 @@
     always @(posedge clock or clear) begin
 
         if(clear)
-            assign q = 4'b0;
+            q = 4'b0;
         else
-            assign  q = outpff;
+            q = outpff;
 
     end
 
