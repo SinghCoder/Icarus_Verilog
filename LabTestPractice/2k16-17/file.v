@@ -1,3 +1,4 @@
+/*ToDo: Solution is not working right now, correct it */
 `define S0 2'b00
 `define S1 2'b01
 `define S2 2'b10
