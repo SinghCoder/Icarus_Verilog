@@ -10,7 +10,9 @@
 		input [3:0] srcB,
 		output parity
 	);
-		
+		/*
+			ToDo: Use these registers for implementation, Code not correct right now as per labsheet requirements.
+		*/
 		reg [10:0] IF_EXReg;
 		reg [3:0] EX_PARReg;
 		
