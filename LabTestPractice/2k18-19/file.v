@@ -13,16 +13,13 @@ module dff(
 	initial
 		q = 1'b0;
 
-	always @(posedge clk or reset or set) begin
-		if(reset)
-			q <= 1'b0;
-		else
-			q <= d;
-		
-		if(set)
-			q <= 1'b1;
-		else
-			q <= d;
+	always @(posedge clk or set) begin
+		case ({reset, set}) 
+			2'b00 : q <= d;
+			2'b01 : q <= 1'b1;
+			2'b10 : q <= 1'b0;
+			2'b11 : q <= 1'bz;	
+		endcase
 	end
 
 endmodule
@@ -163,9 +160,10 @@ module tb_intg();
 			set = 1'b1;
 			s = 1'b0;
 			xx = 1'b0;
-		#5	s = 1'b1;
+	#5	 	s = 1'b1;
 			set = 1'b0;
 			xx = 1'b1;
+		#30 xx = 1'b0;
 		#100 $finish;
 
 	end	
@@ -175,7 +173,7 @@ module tb_intg();
 	end
 
 	initial begin
-		$monitor("s = %b, x = %b, q = %d, g = %b", s, xx, q, g);
+		$monitor($time,"s = %b, x = %b, q = %d, g = %b", s, xx, q, g);
 	end
 
 endmodule
