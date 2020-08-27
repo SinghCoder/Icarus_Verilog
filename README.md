@@ -2,6 +2,8 @@
 
 A host for some Verilog-snippets written during Lab Sessions of **Computer Architecture** Course at **BITS Pilani**.
 
+***Consider giving it a ☆ if the repo helps you in any way***
+
 ## Running a file
 
 - Compile the verilog file (one with.v extension) using following command
