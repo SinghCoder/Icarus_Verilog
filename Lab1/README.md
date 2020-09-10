@@ -20,6 +20,8 @@
 - timescale is a directive used to define unit and precision of time measurement
   - like 15cm scale me 1cm = unit, 1mm = precision
 
+![module](module.png)
+
 ## Level of abstractions
 
 - Gate level modeling

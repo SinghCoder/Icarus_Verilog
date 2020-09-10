@@ -1,5 +1,5 @@
 $date
-	Wed Aug 26 22:47:27 2020
+	Thu Aug 27 14:28:10 2020
 $end
 $version
 	Icarus Verilog
@@ -7,51 +7,68 @@ $end
 $timescale
 	1s
 $end
-$scope module testbench_mux2to1_gate $end
-$var wire 1 ! f $end
-$var reg 1 " a $end
-$var reg 1 # b $end
-$var reg 1 $ s $end
-$scope module mux_gate $end
-$var wire 1 " a $end
-$var wire 1 # b $end
-$var wire 1 % c $end
-$var wire 1 & d $end
-$var wire 1 ' e $end
-$var wire 1 ! f $end
-$var wire 1 $ s $end
+$scope module mux2tol_beh $end
+$var wire 1 ! a $end
+$var wire 1 " b $end
+$var wire 1 # s $end
+$var reg 1 $ f $end
+$upscope $end
+$scope module mux2tol_df $end
+$var wire 1 % a $end
+$var wire 1 & b $end
+$var wire 1 ' s $end
+$var wire 1 ( f $end
+$upscope $end
+$scope module testbench $end
+$var wire 1 ) f $end
+$var reg 1 * a $end
+$var reg 1 + b $end
+$var reg 1 , s $end
+$scope module mux_df $end
+$var wire 1 * a $end
+$var wire 1 + b $end
+$var wire 1 - c $end
+$var wire 1 . d $end
+$var wire 1 / e $end
+$var wire 1 ) f $end
+$var wire 1 , s $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-x'
-0&
-x%
-x$
-1#
-0"
-x!
+x/
+0.
+0-
+x,
+0+
+0*
+0)
+z(
+z'
+z&
+z%
+z$
+z#
+z"
+z!
 $end
 #2
-0%
-1$
+0/
+1,
 #7
-1%
-0$
+1/
+0,
 #17
-0!
-0'
-0#
-1"
+1*
 #32
-1!
-0%
-1&
-1$
+1)
+0/
+1-
+1,
 #52
-0!
-1%
-0&
-0$
-#152
+0)
+1/
+0-
+0,
+#102
