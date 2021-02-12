@@ -72,3 +72,11 @@ gtkwave filename.vcd
 
 - *The codes are not guaranteed to be correct and have not been verified thouroughly, if you find a mistake please feel free to send a PR or contact me via mail.*
 - *All files on this repository are for educational purpose with no intentions of promoting unfair means in any evaluative component*
+
+## Commit History Visualizer
+
+![GIF](CommitHistoryVisualizer/Verilog.gif)
+
+[video](CommitHistoryVisualizer/Verilog.mp4)
+
+- Above video is made using ![Visual Source](https://img.shields.io/badge/visual-source-orange)
