@@ -68,7 +68,7 @@ gtkwave filename.vcd
 
 1. *Verilog HDL by Samir Palnitkar*
 
-## Warning
+## Disclaimer
 
 - *The codes are not guaranteed to be correct and have not been verified thouroughly, if you find a mistake please feel free to send a PR or contact me via mail.*
 - *All files on this repository are for educational purpose with no intentions of promoting unfair means in any evaluative component*
