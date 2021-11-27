@@ -62,7 +62,7 @@
              input [3:0] ina;
              input [3:0] inb;
              output [3:0] out;
-             out = ina + inb;
+             out = ina + inb;  // Use an assign statement
         endmodule
 
         module tb_test();
